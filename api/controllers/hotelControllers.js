@@ -1,0 +1,53 @@
+import {createError} from "../middleware/errorHandler.js"
+import Hotel from "../models/Hotel.js"
+
+
+export const createHotel = async (req,res,next)=>{
+    const newHotel = new Hotel(req.body)
+    try{
+        const savedHotel = await newHotel.save()
+        res.status(200).json(savedHotel)
+    }catch(err){
+        next(err);
+    }
+}
+
+export const updateHotel = async (req,res,next)=>{
+    try{
+        const updatedHotel = await Hotel.findByIdAndUpdate(req.params.id, {$set: req.body},{$new: true});
+        res.status(200).json(updatedHotel)
+    }catch(err){
+        next(err);
+    }
+}
+
+export const deleteHotel = async (req,res,next)=>{
+    try{
+        await Hotel.findByIdAndDelete(req.params.id);
+        res.status(200).json("HOTEL DELETED")
+    }catch(err){
+        next.json(err);
+    }
+}
+
+export const getHotelById = async (req,res,next)=>{
+    try{
+        const currHotel = await Hotel.findById(req.params.id);
+        if(currHotel)
+            res.status(200).json(currHotel)
+        else{
+            res.status(404).send("NO HOTEL WITH THIS ID IS IN THE SYSTEM")
+        }
+    }catch(err){
+        next(err);
+    }
+}
+
+export const getAllHotels = async (req,res,next)=>{
+    try{
+        const hotels = await Hotel.find();
+        res.status(200).json(hotels)
+    }catch(err){
+        next(err);
+    }
+}
