@@ -1,5 +1,7 @@
 .env
 /api/node_modules
+/client/node_modules
+/front/node_modules
 /node_modules
 .vscode
 
