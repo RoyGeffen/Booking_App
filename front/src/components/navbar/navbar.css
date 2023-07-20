@@ -25,3 +25,17 @@
   cursor: pointer;
   color: #003580;
 }
+
+button.logout-button {
+  margin-left: 20px;
+  background-color: #ff0000; /* Initial background color (red) */
+  color: #ffffff; /* Text color (white) */
+  padding: 5px 10px; /* Adjust padding as needed */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button.logout-button:hover {
+  background-color: #ff5555; /* Background color on hover (a slightly lighter shade of red) */
+}
