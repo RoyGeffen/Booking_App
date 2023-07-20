@@ -1,4 +1,3 @@
-import { createError } from "../middleware/errorHandler.js";
 import User from "../models/User.js";
 import bcrypt from "bcrypt";
 import asyncHandler from "express-async-handler";
