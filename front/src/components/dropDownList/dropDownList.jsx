@@ -8,6 +8,8 @@ import edit from '../../images/edit.png';
 import settings from '../../images/settings.png';
 import logout from '../../images/log-out.png';
 import register from '../../images/register.png';
+import pfp from '../../images/pfp.jpg';
+
 
 const DropDownList = ()=>{
     const navigate = useNavigate()
@@ -55,7 +57,7 @@ const DropDownList = ()=>{
         <div className="DropDownList">
             <div className='menu-container' ref={menuRef}>
                 <div className='menu-trigger' onClick={()=>{setOpen(!open)}}>
-                    <img src= {userImage} alt="Profile"></img>
+                    <img src= { (user&&user.pfp) ? pfp : userImage} alt="Profile"></img>
                 </div>
             {user?
                 (

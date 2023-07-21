@@ -19,12 +19,13 @@ export const register = asyncHandler(async (req,res,next)=>{
         username, email, password: hashedPass
     });
     if (user) {
-      res.status(201).json({ _id: user.id, email: user.email });
+      login(req,res)
+      //res.status(201).json({ "user": user });
     } else {
       res.status(400);
       throw new Error("User data us not valid");
     }
-    res.json({ message: "Register the user" });
+    //res.json({ message: "Register the user" });
 });
 
 export const login = asyncHandler(async (req,res,next)=>{
