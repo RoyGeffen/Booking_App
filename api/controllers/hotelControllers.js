@@ -1,6 +1,5 @@
-import {createError} from "../middleware/errorHandler.js"
 import Hotel from "../models/Hotel.js"
-
+import Room from "../models/Room.js"
 
 export const createHotel = async (req,res,next)=>{
     const newHotel = new Hotel(req.body)
@@ -83,6 +82,20 @@ export const countByType = async (req,res,next)=>{
             {type: "villa", count: villaCount},
             {type: "cabin", count: cabinCount},
         ])
+    }catch(err){
+        next(err);
+    }
+}
+
+
+export const getHotelRooms = async (req,res,next)=>{
+    try{
+        const hotel = await Hotel.findById(req.params.id);
+        const list = await Promise.all(hotel.rooms.map((room)=>{
+            return Room.findById(room);
+        }))
+
+        res.status(200).json(list)
     }catch(err){
         next(err);
     }

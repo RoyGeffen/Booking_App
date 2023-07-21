@@ -93,7 +93,7 @@
   }
   
   .dropdown-menu.active{
-    z-index: 2;
+    z-index: 5;
     opacity: 1;
     overflow: visible;
     visibility: visible;
@@ -147,6 +147,7 @@
   }
   
   .dropdownItem img{
+    display: flex;
     max-width: 20px;
     margin-right: 10px;
     opacity: 0.5;
