@@ -8,7 +8,7 @@ const MailList = () => {
   const onclick = () => {
     setMail("")
   }
-  console.log(mail)
+
   return (
     <div className="mail">
       <h1 className="mailTitle">Save time, save money!</h1>

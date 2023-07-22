@@ -64,18 +64,19 @@ const Reserve = ({setOpen, hotelId}) => {
         navigate("/");
       } catch (err) {}
     };
-
     return(
         <div className="reserve">
         <div className="rContainer">
             <FontAwesomeIcon
+              key={"x"}
               icon={faCircleXmark}
               className="rClose"
-              onClick={() => setOpen(false)}
+              onClick={() => setOpen(false)} 
+              disabled={false}
             />
             <span>Select your rooms:</span>
-            {data.map((item, i)=>(
-                <div className="rItem">
+            {data.map((item)=>(
+                <div className="rItem" key={item._id}>
                     <div className="rInfo">
                         <div className="rTitle">{item.title}</div>
                         <div className="rDesc">{item.desc}</div>
