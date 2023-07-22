@@ -4,8 +4,8 @@ import asyncHandler from "express-async-handler";
 import jwt  from "jsonwebtoken";
 
 export const register = asyncHandler(async (req,res,next)=>{
-    const {username,email,password} = req.body;
-    if(!username || !email || ! password){
+    const {username,email,password,country,city,phone,img} = req.body;
+    if(!username || !email || ! password || !country|| !city|| !phone){
         res.status(400)
         throw new Error("All fields Are mandatory");
     }
@@ -15,8 +15,10 @@ export const register = asyncHandler(async (req,res,next)=>{
         throw new Error("Username already exists with this email");
     }
     const hashedPass = await bcrypt.hash(password, 10);
+
     const user = await User.create({
-        username, email, password: hashedPass
+        username,email, password: hashedPass,
+        country,city,phone, img
     });
     if (user) {
       login(req,res)
@@ -47,12 +49,14 @@ export const login = asyncHandler(async (req,res,next)=>{
         },  process.env.ACCESS_TOKEN_SECRET,
             {expiresIn: "60m"} 
         );
+        const {password, isAdmin, ...otherDetails} = user._doc;
         res.cookie("access_token", accessToken,{
                 httpOnly:true,
             }).status(200)
               .json({title:"authorized",
                 success:true,
-                "user":user
+                "user":{...otherDetails},
+                isAdmin
             });
     }else{
         res.status(401)

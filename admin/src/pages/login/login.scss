@@ -1,0 +1,102 @@
+.body {
+    background-image: url("../../images/loginbg.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: lightblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  
+  .lContainer {
+    opacity: 0.8;
+    max-width: 450px;
+    width: 100%;
+    padding: 20px;
+    background-image: url("../../images/logform.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .head {
+    font-family: cursive;
+    text-shadow: #400c4b;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .base {
+    font-family: cursive;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #333;
+  }
+  
+  .lButton{
+    font-family: cursive;
+    width: 100%;
+    padding: 10px;
+    background-color: #400c4b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  input {
+    width: 94%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  
+  #response {
+    margin-top: 10px;
+    text-align: center;
+    color: #4CAF50;
+  }
+  
+  #formContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  #registerFormContainer {
+    display: none;
+  }
+  
+  .link {
+    text-align: center;
+    font-weight: bold;
+    color: rgb(171, 212, 21);
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  
+  .switchLink{
+    text-align: center;
+    color: wheat;
+    font-weight: bold;
+    font-size: 19px;
+  }
+  
+  .link:hover {
+    text-decoration: none;
+  }
+  
+  .error{
+    font-weight: bolder;
+    font-size: 30px;
+    color: red;
+  }
