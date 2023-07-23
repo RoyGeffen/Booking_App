@@ -12,7 +12,6 @@ const Datatable =  ({columns}) => {
   const [list,setList] = useState([]);
   const {data,loading,error,reFetch} = useFetch(`/${path}`);
 
-  console.log(data)
   const handleDelete = async (id) => {
     try {
       await axios.delete(`/${path}/${id}`)
@@ -58,8 +57,8 @@ const Datatable =  ({columns}) => {
   return (
     <div className="datatable">
       <div className="datatableTitle">
-        Add New User
-        <Link to="/users/new" className="link">
+        Add New {path}
+        <Link to={`/${path}/new${(path.charAt(0).toUpperCase() + path.slice(1)).slice(0,-1)}`} className="link">
           Add New
         </Link>
       </div>
