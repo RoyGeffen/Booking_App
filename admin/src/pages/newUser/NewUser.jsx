@@ -13,6 +13,7 @@ const NewUser = ({ inputs, title }) => {
     setInfo((prev) => ({ ...prev, [e.target.id]: e.target.value }));
   };
 
+
   const handleClick = async (e) => {
     e.preventDefault();
     const data = new FormData();
@@ -20,7 +21,7 @@ const NewUser = ({ inputs, title }) => {
     data.append("upload_preset", "upload");
     try {
       const uploadRes = await axios.post(
-        "POST https://api.cloudinary.com/v1_1/das1ifbzs/image/upload",
+        "https://api.cloudinary.com/v1_1/das1ifbzs/image/upload",
         data
       );
 
@@ -43,7 +44,7 @@ const NewUser = ({ inputs, title }) => {
       <div className="newContainer">
         <Navbar />
         <div className="top">
-          <h1>{title}</h1>
+          <h1>Users</h1>
         </div>
         <div className="bottom">
           <div className="left">
@@ -73,7 +74,12 @@ const NewUser = ({ inputs, title }) => {
               {inputs.map((input) => (
                 <div className="formInput" key={input.id}>
                   <label>{input.label}</label>
-                  <input onChange={handleChange} type={input.type} placeholder={input.placeholder} />
+                  <input
+                     onChange={handleChange} 
+                     type={input.type} 
+                     placeholder={input.placeholder} 
+                     id={input.id}
+                  />
                 </div>
               ))}
               <button onClick={handleClick}>Send</button>

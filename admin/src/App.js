@@ -68,7 +68,7 @@ function App() {
                 path="newHotel"
                 element={
                 <ProtectedRoute>
-                  <NewHotel inputs={userInputs} title="Add New Hotel" />
+                  <NewHotel />
                 </ProtectedRoute>}
               />
             </Route>

@@ -107,7 +107,7 @@ export const hotelInputs = [
     placeholder: "The best Hotel",
   },
   {
-    id: "desc",
+    id: "description",
     label: "Description",
     type: "text",
     placeholder: "description",
